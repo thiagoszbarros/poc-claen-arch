@@ -1,0 +1,19 @@
+{
+    "name": "thiagoszbarros/registration",
+    "type": "academic-project",
+    "authors": [
+        {
+            "name": "Thiago Barros",
+            "email": "thiagobarros95@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
