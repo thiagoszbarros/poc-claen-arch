@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  app: 
+    container_name: registration
+    image: webdevops/php-nginx-dev:8.2
+    volumes:
+      - ./:/var/www/app
+    environment:
+      - XDEBUG_START_WITH_REQUEST=yes
+      - XDEBUG_DISCOVER_CLIENT_HOST=false
+    ports:
+      - '8080:80'
+      - '443:443'
