@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\ExportRegistration;
+namespace App\Application\UseCases\ExportRegistration;
 
-use App\Contracts\ExportRegistrationPdfExporter;
-use App\Contracts\Storage;
 use App\Domain\ValueObjects\Cpf;
+use App\Application\Contracts\Storage;
 use App\Domain\Repositories\LoadRegistration;
-use App\UseCases\ExportRegistration\Dtos\ExportRegistrationInput;
-use App\UseCases\ExportRegistration\Dtos\ExportRegistratonOutput;
+use App\Application\Contracts\ExportRegistrationPdfExporter;
+use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistrationInput;
+use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistratonOutput;
 
 final readonly class ExportRegistration
 {

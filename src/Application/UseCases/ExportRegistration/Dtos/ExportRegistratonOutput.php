@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\ExportRegistration\Dtos;
+namespace App\Application\UseCases\ExportRegistration\Dtos;
 
 readonly class ExportRegistratonOutput
 {

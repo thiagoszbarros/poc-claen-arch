@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-use App\Contracts\ExportRegistrationPdfExporter;
-use App\UseCases\ExportRegistration\Dtos\ExportRegistratonOutput;
-use App\Contracts\Storage;
 use App\Domain\ValueObjects\Cpf;
 use App\Domain\ValueObjects\Email;
 use App\Domain\Entities\Registration;
+use App\Application\Contracts\Storage;
 use App\Domain\Repositories\LoadRegistration;
-use App\UseCases\ExportRegistration\ExportRegistration;
-use App\UseCases\ExportRegistration\Dtos\ExportRegistrationInput;
-
+use App\Application\Contracts\ExportRegistrationPdfExporter;
+use App\Application\UseCases\ExportRegistration\ExportRegistration;
+use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistrationInput;
+use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistratonOutput;
 
 test('Export Registration Use Case', function (): void {
     $registration = Registration::reset()

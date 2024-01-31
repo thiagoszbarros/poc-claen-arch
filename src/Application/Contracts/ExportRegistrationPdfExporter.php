@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Contracts;
+namespace App\Application\Contracts;
 
 use App\Domain\Entities\Registration;
 
