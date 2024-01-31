@@ -4,28 +4,40 @@ declare(strict_types=1);
 
 namespace App\UseCases\ExportRegistration;
 
-use App\Domain\Repositories\LoadRegistration;
+use App\Contracts\ExportRegistrationPdfExporter;
+use App\Contracts\Storage;
 use App\Domain\ValueObjects\Cpf;
+use App\Domain\Repositories\LoadRegistration;
 use App\UseCases\ExportRegistration\Dtos\ExportRegistrationInput;
 use App\UseCases\ExportRegistration\Dtos\ExportRegistratonOutput;
 
-final class ExportRegistration
+final readonly class ExportRegistration
 {
-    public function __construct(private LoadRegistration $repository)
-    {
+    public function __construct(
+        private LoadRegistration $repository,
+        private ExportRegistrationPdfExporter $pdfExporter,
+        private Storage $storage,
+    ) {
     }
 
     public function execute(ExportRegistrationInput $input): ExportRegistratonOutput
     {
-        $registrationNumber = new Cpf($input->getRegistrationNumber());
-        $registration = $this->repository->loadByRegistrationNumber($registrationNumber);
+        $registration = $this->repository->loadByRegistrationNumber(
+            registrationNumber: new Cpf(
+                cpf: $input->getRegistrationNumber()
+            )
+        );
 
-        return new ExportRegistratonOutput([
-            'name' => $registration->getName(),
-            'email' => strval($registration->getEmail()),
-            'registrationNumber' => strval($registration->getRegistrationNumber()),
-            'birthDate' => $registration->getBirthDate()->format(\DateTime::ISO8601),
-            'registratedAt' => $registration->getRegistratedAt()->format(\DateTime::ISO8601),
-        ]);
+        $fileContent = $this->pdfExporter->export(registration: $registration);
+
+        $this->storage->store(
+            filename: $input->getFileName(),
+            path: $input->getPath(),
+            content: $fileContent
+        );
+
+        return new ExportRegistratonOutput(
+            fullFilename: $input->getPath() . DIRECTORY_SEPARATOR . $input->getFileName() . '.pdf'
+        );
     }
 }
