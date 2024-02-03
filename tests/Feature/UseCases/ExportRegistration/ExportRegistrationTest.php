@@ -19,11 +19,14 @@ test('Export registration using HtmlToPdf and ServerStorage', function (): void 
     $storage = new ServerStorage();
     $exportRegistrationUseCase = new ExportRegistration($repo, $pdfExporter, $storage);
     $workingDir = $_ENV['PWD'];
-    $input = new ExportRegistrationInput($registration->getRegistrationNumber(), 'teste', "$workingDir/storage");
+    $input = new ExportRegistrationInput($registration->getRegistrationNumber(), 'test', "tests");
 
     $result = $exportRegistrationUseCase->execute($input);
 
     expect($result)->toBeInstanceOf(ExportRegistratonOutput::class);
-    expect($result->getFullFilename())->toBe('/var/www/app/storage/teste.pdf');
-    expect(Counter::number_of_files("$workingDir/storage", 'pdf'))->toBe(1);
+    expect($result->getFullFilename())->toBe('tests/test.pdf');
+    expect(Counter::number_of_files("$workingDir/storage/tests", 'pdf'))->toBe(1);
+
+    unlink("$workingDir/storage/tests/test.pdf");
+    rmdir("$workingDir/storage/tests");
 });
