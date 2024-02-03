@@ -13,6 +13,13 @@ final class ServerStorage implements Storage
         string $path,
         string $content
     ): bool {
-        return boolval(file_put_contents("$path/$filename.pdf", $content));
+        $workingDir = $_ENV['PWD'];
+        $fullPath = "$workingDir/storage/$path";
+
+        if (!file_exists($fullPath)) {
+            mkdir($fullPath, 0777);
+        }
+
+        return boolval(file_put_contents("$fullPath/$filename.pdf", $content));
     }
 }
