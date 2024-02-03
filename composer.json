@@ -10,7 +10,9 @@
     "require": {
         "php": "^8.2",
         "ext-pdo": "*",
-        "spipu/html2pdf": "^5.2"
+        "spipu/html2pdf": "^5.2",
+        "guzzlehttp/psr7": "^2.6",
+        "psr/http-message": "^1.1"
     },
     "autoload": {
         "psr-4": {
