@@ -16,7 +16,8 @@ class ExportRegistrationPresenter implements Presentation
                 'errors' => null,
                 'message' => 'Registration exported sucessfully.',
                 'data' => $data,
-            ]
+            ],
+            JSON_UNESCAPED_UNICODE,
         );
     }
 }
