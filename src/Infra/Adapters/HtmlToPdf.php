@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Infra\Adapters;
 
-use App\Domain\Entities\Registration;
 use App\Application\Contracts\ExportRegistrationPdfExporter;
+use App\Domain\Entities\Registration;
 use Spipu\Html2Pdf\Html2Pdf;
 
 class HtmlToPdf implements ExportRegistrationPdfExporter

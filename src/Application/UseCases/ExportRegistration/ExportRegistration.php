@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Application\UseCases\ExportRegistration;
 
-use App\Domain\ValueObjects\Cpf;
-use App\Application\Contracts\Storage;
-use App\Domain\Repositories\LoadRegistration;
 use App\Application\Contracts\ExportRegistrationPdfExporter;
+use App\Application\Contracts\Storage;
 use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistrationInput;
 use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistratonOutput;
+use App\Domain\Repositories\LoadRegistration;
+use App\Domain\ValueObjects\Cpf;
 
 final readonly class ExportRegistration
 {
@@ -37,7 +37,7 @@ final readonly class ExportRegistration
         );
 
         return new ExportRegistratonOutput(
-            fullFilename: $input->getPath() . DIRECTORY_SEPARATOR . $input->getFileName() . '.pdf'
+            fullFilename: $input->getPath().DIRECTORY_SEPARATOR.$input->getFileName().'.pdf'
         );
     }
 }

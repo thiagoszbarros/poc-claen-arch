@@ -7,6 +7,7 @@ namespace App\Domain\ValueObjects;
 final class Cpf
 {
     private readonly string $cpf;
+
     public function __construct(
         string $cpf
     ) {

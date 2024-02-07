@@ -16,7 +16,7 @@ final class ServerStorage implements Storage
         $workingDir = $_ENV['PWD'];
         $fullPath = "$workingDir/storage/$path";
 
-        if (!file_exists($fullPath)) {
+        if (! file_exists($fullPath)) {
             mkdir($fullPath, 0777);
         }
 

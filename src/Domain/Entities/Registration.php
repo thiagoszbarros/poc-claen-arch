@@ -11,9 +11,13 @@ use DateTimeInterface;
 final class Registration
 {
     private string $name;
+
     private Email $email;
+
     private Cpf $registrationNumber;
+
     private DateTimeInterface $birthDate;
+
     private DateTimeInterface $registratedAt;
 
     private function __construct()
@@ -23,12 +27,13 @@ final class Registration
     /**
      * Reset class instance
      *
-     * @return  self
+     * @return self
      */
     public static function reset(): static
     {
         return new Registration();
     }
+
     /**
      * Get the value of registratedAt
      */
@@ -40,7 +45,7 @@ final class Registration
     /**
      * Set the value of registratedAt
      *
-     * @return  self
+     * @return self
      */
     public function setRegistratedAt(DateTimeInterface $registratedAt): static
     {
@@ -60,7 +65,7 @@ final class Registration
     /**
      * Set the value of birthDate
      *
-     * @return  self
+     * @return self
      */
     public function setBirthDate(DateTimeInterface $birthDate): static
     {
@@ -80,7 +85,7 @@ final class Registration
     /**
      * Set the value of registrationNumber
      *
-     * @return  self
+     * @return self
      */
     public function setRegistrationNumber(Cpf $registrationNumber): static
     {
@@ -100,7 +105,7 @@ final class Registration
     /**
      * Set the value of email
      *
-     * @return  self
+     * @return self
      */
     public function setEmail(Email $email): static
     {
@@ -120,7 +125,7 @@ final class Registration
     /**
      * Set the value of name
      *
-     * @return  self
+     * @return self
      */
     public function setName(string $name): static
     {
@@ -132,7 +137,7 @@ final class Registration
     /**
      * Build class instance
      *
-     * @return  self
+     * @return self
      */
     public function build(): static
     {

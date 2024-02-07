@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Infra\Repositories\Stunt;
 
-use DateTimeImmutable;
-use App\Domain\ValueObjects\Cpf;
-use App\Domain\ValueObjects\Email;
 use App\Domain\Entities\Registration;
 use App\Domain\Repositories\LoadRegistration;
+use App\Domain\ValueObjects\Cpf;
+use App\Domain\ValueObjects\Email;
+use DateTimeImmutable;
 
 class StuntLoadRegistration implements LoadRegistration
 {

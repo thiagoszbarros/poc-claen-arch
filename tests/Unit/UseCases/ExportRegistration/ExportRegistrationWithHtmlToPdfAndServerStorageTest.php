@@ -1,14 +1,14 @@
 <?php
 
-use App\Domain\ValueObjects\Cpf;
-use App\Infra\Adapters\HtmlToPdf;
-use App\Domain\Entities\Registration;
-use App\Infra\Adapters\ServerStorage;
-use ThiagoBarros\FileCounter\Counter;
-use App\Infra\Repositories\Stunt\StuntLoadRegistration;
-use App\Application\UseCases\ExportRegistration\ExportRegistration;
 use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistrationInput;
 use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistratonOutput;
+use App\Application\UseCases\ExportRegistration\ExportRegistration;
+use App\Domain\Entities\Registration;
+use App\Domain\ValueObjects\Cpf;
+use App\Infra\Adapters\HtmlToPdf;
+use App\Infra\Adapters\ServerStorage;
+use App\Infra\Repositories\Stunt\StuntLoadRegistration;
+use ThiagoBarros\FileCounter\Counter;
 
 test('Export registration using HtmlToPdf and ServerStorage', function (): void {
 
@@ -19,7 +19,7 @@ test('Export registration using HtmlToPdf and ServerStorage', function (): void 
     $storage = new ServerStorage();
     $exportRegistrationUseCase = new ExportRegistration($repo, $pdfExporter, $storage);
     $workingDir = $_ENV['PWD'];
-    $input = new ExportRegistrationInput($registration->getRegistrationNumber(), 'test', "tests");
+    $input = new ExportRegistrationInput($registration->getRegistrationNumber(), 'test', 'tests');
 
     $result = $exportRegistrationUseCase->execute($input);
 

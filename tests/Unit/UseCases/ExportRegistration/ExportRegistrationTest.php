@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use App\Domain\ValueObjects\Cpf;
-use App\Domain\ValueObjects\Email;
-use App\Domain\Entities\Registration;
-use App\Application\Contracts\Storage;
-use App\Domain\Repositories\LoadRegistration;
 use App\Application\Contracts\ExportRegistrationPdfExporter;
-use App\Application\UseCases\ExportRegistration\ExportRegistration;
+use App\Application\Contracts\Storage;
 use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistrationInput;
 use App\Application\UseCases\ExportRegistration\Dtos\ExportRegistratonOutput;
+use App\Application\UseCases\ExportRegistration\ExportRegistration;
+use App\Domain\Entities\Registration;
+use App\Domain\Repositories\LoadRegistration;
+use App\Domain\ValueObjects\Cpf;
+use App\Domain\ValueObjects\Email;
 
 test('Export Registration Use Case', function (): void {
     $registration = Registration::reset()
@@ -50,5 +50,5 @@ test('Export Registration Use Case', function (): void {
     expect($output)->toBeInstanceOf(ExportRegistratonOutput::class);
     expect($output->getFullFilename())
         ->toBeString()
-        ->toBe('registrations/xpto.pdf'); 
+        ->toBe('registrations/xpto.pdf');
 });
