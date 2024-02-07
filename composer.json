@@ -23,7 +23,8 @@
         "pestphp/pest": "^2.33",
         "pestphp/pest-plugin-watch": "^2.1",
         "mockery/mockery": "^1.6",
-        "thiagobarros2/file-counter": "^1.2"
+        "thiagobarros2/file-counter": "^1.2",
+        "laravel/pint": "^1.13"
     },
     "config": {
         "allow-plugins": {
