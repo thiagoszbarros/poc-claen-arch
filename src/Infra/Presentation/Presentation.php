@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Infra\Http\Controllers;
+namespace App\Infra\Http\Presentation;
 
 interface Presentation
 {
